@@ -1,45 +1,23 @@
-
-sum(5, 10);
-function sum(a, b) {
-  add = a + b;
-  console.log(add);
+var a = "Hello guys!";
+first();
+function first() {
+  var b = "How are you?";
+  second();
+  function second() {
+    var c = "I am Vikas";
+    third();
+    function third() {
+      var d = " Hurrey!!";
+      forth();
+      function forth() {
+        console.log(a + b + c + d);
+        fifth();
+      }
+    }
+  }
 }
-// sum2(10, 20); // Uncaught TypeError: sum2 is not a function
-var sum2 = function (a, b) {
-  add = a + b;
-  console.log(add);
+function fifth() {
+  var e = "natcho";
+  // console.log(a + b + c + d + e); // Uncaught ReferenceError: b is not defined
+  // b, c & d are not defined
 }
-
-// sum3(20, 10); //Uncaught ReferenceError: Cannot access 'sum3' before initialization
-const sum3 = (a, b) => {
-  add = a + b;
-  console.log(add);
-}
-
-console.log(myName);
-var myName = "vikas";
-
-
-a = 10;
-console.log(a);
-var a;
-
-var b = 20;
-console.log(b);
-var b = 40;
-
-// var c;
-console.log("c=", c);
-var c = 50;
-
-
-console.log("I am a " + job); // I am a undefined
-var job = "Web Developer";
-console.log("I am a " + job); // I am a Web Developer
-
-function whoAmI() {
-  console.log("I am a " + job); // I am a undefined
-  var job = "Full stack";
-  console.log("I am a " + job); // I am a Full Stack
-}
-whoAmI();

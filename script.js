@@ -1,23 +1,15 @@
-var a = "Hello guys!";
-first();
-function first() {
-  var b = "How are you?";
-  second();
-  function second() {
-    var c = "I am Vikas";
-    third();
-    function third() {
-      var d = " Hurrey!!";
-      forth();
-      function forth() {
-        console.log(a + b + c + d);
-        fifth();
-      }
-    }
-  }
+// "use strict"
+
+function sum(a, b) {
+  // add = a + b; // Uncaught ReferenceError: add is not defined
+  var add = a + b;
+  console.log(add);
 }
-function fifth() {
-  var e = "natcho";
-  // console.log(a + b + c + d + e); // Uncaught ReferenceError: b is not defined
-  // b, c & d are not defined
+sum(10, 20);
+
+// function sub(a, a) { // Duplicate parameter name not allowed in this
+function sub(a, a) {
+  subs = a - 20;
+  console.log(subs);
 }
+sub(40, 10);

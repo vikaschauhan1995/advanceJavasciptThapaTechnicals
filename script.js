@@ -1,34 +1,33 @@
+let a = 1;
+let b = "vikas";
+let c = true;
+let d;
+let e = "";
+let f = null;
 
-function sum() {
-  let add = 10 + 10;
-  console.log(this);
-}
-// sum();
+console.log(typeof (c));
+console.log(typeof (d));
+console.log(typeof (e));
+console.log(typeof (f))
+console.log("-----------------------------");
+const person = {
+  name: "vikas",
+};
+person.age = 27;
+console.log(typeof (person));
+console.log(typeof ({}));
+console.log(typeof ([]));
 
-const vikas = {
-  fullName: 'Vikas Chauhan',
-  sum() {
-    console.log(this); // ! this keyword points the vikas object
-  },
-  min: () => {
-    // ! Inside a arrow function "this" points the window object
-    console.log(this); // ! this keyword points to window object
-  },
-  calculation: function () {
-    console.log("calculation", this); // ! this keyword points vikas object
-    /*
-    * @this key
-    */
-    function child() {
-      console.log("child", this);// ! this keyword points to window object
-    }
-    child();
-    let child2 = () => {
-      console.log("child2", this);// ! inside arrow function "this" points vikas object
-    }
-    child2();
-  }
+
+const book = () => {
+  console.log("this is book function");
 }
-vikas.sum();
-vikas.min();
-vikas.calculation();
+book.thickness = "250pages";
+console.log(book.thickness);
+
+
+
+console.log("---------------------------------");
+const car = ["tata", "mahindra"];
+car._2 = "toyoya";
+console.log(car);

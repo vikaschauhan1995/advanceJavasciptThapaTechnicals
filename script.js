@@ -1,87 +1,59 @@
-let a = 5;
-let b = a;
-
-b += 5;
-
-console.log(a);
-console.log(b);
-
-
-const person1 = {
-  fName: "Vikas",
-  lName: "Chauhan"
-};
-const person2 = person1;
-
-person2.fName = "Anuj";
-
-console.log(person1);
-console.log(person2);
-
-
-const arr1 = [1, 2, 3, 4];
-const arr2 = arr1;
-
-arr2.push(5);
-
-console.log(arr1);
-console.log(arr2);
-
-console.log("--------------------");
-
-const arr3 = [1, 2, 3, 4];
-// const arr4 = [].concat(arr3);
-const arr4 = [...arr3];
-// const arr5 = [...arr3, ...arr4];
-arr4.push(5);
-
-console.log(arr3);
-console.log(arr4);
-// console.log(arr5)
-
-console.log("--------------------");
-
-let c = 5;
-let d = [1, 2]
-const add = (c, [...d]) => {
-  c++;
-  d.push(3);
-  console.log("d in add function = ", d);
+const a = {
+  state: 'UP',
+  city: "GN",
+  fullAddress: function (zip, phone) {
+    return this.state + ", " + this.city + " " + zip + ", " + phone;
+  }
 }
-add(c, d);
-console.log(c);
-console.log(d);
-
-console.log("--------------------");
-
-
-let height = 5.5;
-const vikas = {
-  firstName: "Vikas",
-  weight: 77
-};
-
-const changeValue = (height, v) => {
-  height = 6
-  v.weight = 80;
+const b = {
+  state: 'UP',
+  city: 'Noida'
 }
-changeValue(height, vikas);
+console.log(a.fullAddress.call(b, 201301, 98711));
+console.log(a.fullAddress.apply(b, [201310, 1234]));
 
-console.log("height ", height);
-console.log("vikas.weight ", vikas.weight);
+// const m = Math.max(1,2,3,4); // output 4
+// const m = Math.max.call(null, 1,2,3,4,5); // output 5
+const m = Math.max.apply(null, [1, 2, 30, 4, 5]) // output 30
 
-console.log("--------------------");
+console.log(m);
 
-const price = 2.5;
-const car = {
-  brand: "Toyota",
-  mileage: 15
-};
-const updateValue = (price, { ...c }) => {
-  price = 3;
-  c.mileage = 20;
+const p = {
+  city: 'GN',
+  zipcode: '201310',
+  fullAddress: function () {
+    return (`city = ${this?.city}, zipcode = ${this?.zipcode}`);
+  }
 }
-updateValue(price, car);
+const m1 = {
+  city: 'Noida'
+};
+const pp1 = p.fullAddress;
+console.log(pp1());
 
-console.log(price);
-console.log(car.mileage);
+// const p2 = p.fullAddress.bind(m);
+const pp = p.fullAddress.bind(p);
+console.log(pp());
+
+
+
+
+
+
+
+const p1 = {
+  city: 'GN',
+  zip: 201310
+}
+const p2 = {
+  city: 'Noida',
+  zip: 201310
+}
+function fullAddress(name) {
+  return (`city = ${this?.city}, zipcode = ${this?.zip}: name:${name}`);
+}
+const _p1 = fullAddress.bind(p1);
+console.log(_p1("vikas"));
+
+const _p2 = fullAddress.bind(p2);
+console.log(_p2("Anuj"));

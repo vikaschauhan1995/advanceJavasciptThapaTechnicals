@@ -1,39 +1,56 @@
-const pLanguages = ["Javascript", "Python", "c#", ".net", "react"];
-
-const person = {
-  name_: "vikas",
-};
-const iterate = pLanguages.forEach((l, i, arr) => {
-  console.log(`${i} - ${l} = ${this}`)
-}, person);
-
-const arr1 = [1, 2, 4, 1, 3, 41, 5];
-const newArr = arr1.map((l, i) => {
-  return l + 100;
-});
-console.log("updateArr = ", newArr);
-// updateArray
-
-const arr2 = [3, 12, 3, 4, 1, 4, 5];
-const updateArray = arr2.forEach((l, i) => {
-  arr2[i] = arr2[i] + 100;
-});
-console.log("arr2 = ", arr2);
-console.log("---------------");
-for (i in pLanguages) {
-  console.log(i);
+// var, let & const
+function fullName() {
+  if (true) {
+    let fName = "Vikas";
+    const lName = "Chauhan";
+    console.log("My name is " + fName + " " + lName);
+  }
+  // console.log("(option) name " + fName); // Uncaught ReferenceError: fName is not defined
+  // console.log("var1 value is = ", lName); // Uncaught ReferenceError: lName is not defined
 }
-console.log("------------------");
-// for of loop
-for (let languages of pLanguages) {
-  console.log(languages);
+fullName(true);
+
+
+function fullName1() {
+  if (true) {
+    var fName = "vikas";
+    var lName = "chauhan";
+  }
+  console.log("(option) name " + fName);
+  console.log("var1 value is = ", lName);
 }
-console.log("------------------");
-const person1 = {
-  name: "vikas",
-  age: 27,
-  weight: 27
-};
-for (let key in person1) {
-  console.log(key);
+
+fullName1();
+
+var myFirstName = "Vikas";
+if (true) {
+  var myFirstName = "Anuj";
+  console.log("myFirstName (in) = " + myFirstName);
 }
+console.log("myFirstName (out) = " + myFirstName);
+
+var myLastName = "Chauhan";
+var myLastName = "Tripathi";
+console.log("myLastName = " + myLastName);
+
+console.log("--------------------------------");
+
+let myFullName = "vikas chauhan";
+if (true) {
+  let myFullName = "Anuj Chauhan";
+  console.log("myFullName (in) = ", myFullName);
+}
+console.log("myFullName (out)= ", myFullName);
+
+
+console.log("--------------------------------");
+
+let yourName = "vikas";
+if (true) {
+  // var yourName = "Anuj"; // Uncaught SyntaxError: Identifier 'yourName' has already been declared
+  console.log("yourName (in) = ", myFullName);
+}
+
+
+// let can't be re-declared on the same scope
+// var is functional scoped and let, const is blocked scoped

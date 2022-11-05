@@ -1,59 +1,39 @@
-const a = {
-  state: 'UP',
-  city: "GN",
-  fullAddress: function (zip, phone) {
-    return this.state + ", " + this.city + " " + zip + ", " + phone;
-  }
-}
-const b = {
-  state: 'UP',
-  city: 'Noida'
-}
-console.log(a.fullAddress.call(b, 201301, 98711));
-console.log(a.fullAddress.apply(b, [201310, 1234]));
+const pLanguages = ["Javascript", "Python", "c#", ".net", "react"];
 
-// const m = Math.max(1,2,3,4); // output 4
-// const m = Math.max.call(null, 1,2,3,4,5); // output 5
-const m = Math.max.apply(null, [1, 2, 30, 4, 5]) // output 30
-
-console.log(m);
-
-const p = {
-  city: 'GN',
-  zipcode: '201310',
-  fullAddress: function () {
-    return (`city = ${this?.city}, zipcode = ${this?.zipcode}`);
-  }
-}
-const m1 = {
-  city: 'Noida'
+const person = {
+  name_: "vikas",
 };
-const pp1 = p.fullAddress;
-console.log(pp1());
+const iterate = pLanguages.forEach((l, i, arr) => {
+  console.log(`${i} - ${l} = ${this}`)
+}, person);
 
-// const p2 = p.fullAddress.bind(m);
-const pp = p.fullAddress.bind(p);
-console.log(pp());
+const arr1 = [1, 2, 4, 1, 3, 41, 5];
+const newArr = arr1.map((l, i) => {
+  return l + 100;
+});
+console.log("updateArr = ", newArr);
+// updateArray
 
-
-
-
-
-
-
-const p1 = {
-  city: 'GN',
-  zip: 201310
+const arr2 = [3, 12, 3, 4, 1, 4, 5];
+const updateArray = arr2.forEach((l, i) => {
+  arr2[i] = arr2[i] + 100;
+});
+console.log("arr2 = ", arr2);
+console.log("---------------");
+for (i in pLanguages) {
+  console.log(i);
 }
-const p2 = {
-  city: 'Noida',
-  zip: 201310
+console.log("------------------");
+// for of loop
+for (let languages of pLanguages) {
+  console.log(languages);
 }
-function fullAddress(name) {
-  return (`city = ${this?.city}, zipcode = ${this?.zip}: name:${name}`);
+console.log("------------------");
+const person1 = {
+  name: "vikas",
+  age: 27,
+  weight: 27
+};
+for (let key in person1) {
+  console.log(key);
 }
-const _p1 = fullAddress.bind(p1);
-console.log(_p1("vikas"));
-
-const _p2 = fullAddress.bind(p2);
-console.log(_p2("Anuj"));

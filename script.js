@@ -1,14 +1,7 @@
-const fName = "Vikas";
-console.log(`My name is ${fName}`);
+var a = 5, b = 10;
 
-console.log(`${fName}`.startsWith('v')); // case sensitive
-console.log(fName.startsWith('V'));
+[b, a] = [a, b]
 
-const fullName = "Vikas Chauhan";
-console.log(fullName.includes('kas'));
-
-// repeat
-const myName = "vikas ";
-const lName = "Chauhan";
-console.log(myName.repeat(10));
-console.log(`${fName} ${lName} `.repeat(5));
+// a = b, b = a;
+console.log(a, b);
+// swap or interchange two values without using third variable

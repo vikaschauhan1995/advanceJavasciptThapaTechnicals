@@ -1,19 +1,31 @@
-let a = true ? 5 : 0;
-console.log(a);
+const arr1 = [12, 3, 4, 55];
+const arr1_value = [...arr1, 10];
+console.log(arr1_value);
+console.log(arr1);
 
-// default parameters
-function multiply(a, b) {
-  b = (b === undefined) ? 1 : b;
-  console.log("multiply = ", a * b);
+// Es5
+function sumOfParam(a, b, c, d) {
+  console.log(`Sum = ${a + b + c + d}`);
 }
-multiply(4);
+sumOfParam(1, 2, 3, 4);
 
-function addition(a, b = 1) {
-  console.log("addition = ", a + b);
+// Es6
+function paramSum(...rest) {
+  // console.log(rest);
+  let total = 0;
+  for (i of rest) {
+    total += i;
+  }
+  console.log(`Total = ${total}`);
 }
-addition(4);
+paramSum(1, 2, 3, 4);
 
-const substract = (a, b = 3) => {
-  console.log(`${a - b}`);
+console.log("----------------------");
+function nameFunc(a, b, ...c) {
+  console.log(`${a} ${b}`); // Ronaldo Neyamar
+  console.log(c); // ['Pele', 'Messi', 'Edan]
+  console.log(c[0]); // Pele
+  console.log(c.length); // 3
+  console.log(c.indexOf('Edan')); // 2
 }
-substract(10);
+nameFunc('Ronaldo', 'Neymar', 'Pele', 'Messi', 'Edan')

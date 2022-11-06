@@ -1,28 +1,37 @@
-let n1 = 5.55;
-console.log(Math.sign(n1));
+const n1 = 5;
+console.log(isFinite(n1));
 
-let n2 = -5.55;
-console.log(Math.sign(n2));
+const n2 = Infinity;
+console.log(isFinite(n2));
 
-let n3 = 0;
-console.log(Math.sign(n3));
+const n3 = "vikas";
+console.log(isFinite(n3));
 
-let n4 = -0;
-console.log(Math.sign(n4));
+const n4 = -5;
+console.log(isFinite(n4));
 
-let n5 = NaN;
-console.log(Math.sign(n5));
+const n5 = NaN;
+console.log(isFinite(n5));
 
-let n6 = -NaN;
-console.log(Math.sign(n6));
 
-let n7 = "vikas";
-console.log(Math.sign(n7));
+const n6 = 5;
+console.log(isNaN(n6));
+console.log(Number.isNaN(n6));
 
-let n8 = 5.02;
-console.log(Math.trunc(n8));
-console.log(Math.floor(n8));
+const n7 = "vikas";
+console.log(isNaN(n7));
+console.log(Number.isNaN(n7));
 
-let n9 = -5.02;
-console.log(Math.trunc(n9));
-console.log(Math.floor(n9));
+const n8 = NaN;
+console.log(isNaN(n8));
+console.log(Number.isNaN(n8));
+
+const n9 = Infinity;
+console.log(isNaN(n9));
+console.log(Number.isNaN(n9));
+
+const n10 = 5;
+console.log(Number.isInteger(n10));
+
+const n11 = 5.3;
+console.log(Number.isInteger(n11));

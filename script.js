@@ -1,37 +1,43 @@
-const n1 = 5;
-console.log(isFinite(n1));
-
-const n2 = Infinity;
-console.log(isFinite(n2));
-
-const n3 = "vikas";
-console.log(isFinite(n3));
-
-const n4 = -5;
-console.log(isFinite(n4));
-
-const n5 = NaN;
-console.log(isFinite(n5));
+function Person(name) {
+  this.name = name;
+  this.bioData = () => {
+    console.log(`My name is ${this.name}`);
+  }
+}
+const person1 = new Person('Anuj');
+const person2 = new Person('Yogesh')
+person1.bioData();
+person2.bioData();
 
 
-const n6 = 5;
-console.log(isNaN(n6));
-console.log(Number.isNaN(n6));
+class Student {
+  constructor(name) {
+    this.name = name;
+  }
+  bioData() {
+    console.log(`My name is ${this.name}`);
+  }
+}
+const student1 = new Student('Vikas');
+student1.bioData();
 
-const n7 = "vikas";
-console.log(isNaN(n7));
-console.log(Number.isNaN(n7));
+class Player extends Student {
+  constructor(name, game) {
+    super(name);
+    this.game = game;
+  }
+  playGame() {
+    console.log(`My name is ${this.name}, I play ${this.game}`);
+  }
+  callParentBio() {
+    return super.bioData();
+  }
+}
+let player1 = new Player('player1 name');
+player1.bioData();
+let player2 = new Player('player2 name', 'ludo');
+player2.playGame();
+console.log("---------");
+player2.callParentBio();
 
-const n8 = NaN;
-console.log(isNaN(n8));
-console.log(Number.isNaN(n8));
 
-const n9 = Infinity;
-console.log(isNaN(n9));
-console.log(Number.isNaN(n9));
-
-const n10 = 5;
-console.log(Number.isInteger(n10));
-
-const n11 = 5.3;
-console.log(Number.isInteger(n11));

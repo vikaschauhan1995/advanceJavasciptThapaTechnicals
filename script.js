@@ -1,5 +1,3 @@
-
-
 const rollNumbersPromise = new Promise((resolve, reject) => {
   setTimeout(() => {
     const numbers = [1, 2, 3, 4, 5, 6];
@@ -20,11 +18,15 @@ const getStudentByRollNumberPromise = (rollNumber) => {
   });
 };
 
-rollNumbersPromise.then((rollNumbers) => {
-  console.log(rollNumbers);
-  return getStudentByRollNumberPromise(rollNumbers[1]);
-}).then((student) => {
-  console.log(student);
+async function studentData() {
+  const getRollNumbers = await rollNumbersPromise;
+  console.log(getRollNumbers);
+  const getStudentData = await getStudentByRollNumberPromise(getRollNumbers[1]);
+  console.log(getStudentData);
+  return getStudentData;
+}
+studentData().then((obj) => {
+  console.log(obj);
 }).catch(error => {
-  console.log("Error: ", error);
+  console.log('error:', error);
 });

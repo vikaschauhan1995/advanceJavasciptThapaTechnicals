@@ -19,14 +19,18 @@ const getStudentByRollNumberPromise = (rollNumber) => {
 };
 
 async function studentData() {
-  const getRollNumbers = await rollNumbersPromise;
-  console.log(getRollNumbers);
-  const getStudentData = await getStudentByRollNumberPromise(getRollNumbers[1]);
-  console.log(getStudentData);
-  return getStudentData;
+  try {
+    const getRollNumbers = await rollNumbersPromise;
+    console.log(getRollNumbers);
+    const getStudentData = await getStudentByRollNumberPromise(getRollNumbers[1]);
+    console.log(getStudentData);
+    return getStudentData;
+  } catch (error) {
+    return 'Catch Error:' + error;
+  }
 }
 studentData().then((obj) => {
   console.log(obj);
 }).catch(error => {
-  console.log('error:', error);
+  console.log('error>>:', error);
 });
